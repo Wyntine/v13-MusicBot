@@ -21,7 +21,7 @@ module.exports = new Command({
     const commandList = commands.filter((x) => x.showHelp !== false);
 
     embed.setDescription(
-      "Bu müzik botuna erişemek ve yardım almak için [sunucumuza](https://discord.gg/altyapilar) gelebilirsin!\nMüzik dünyanı birlikte oluşturmaya ne dersin?",
+      "Bu müzik botuna erişmek ve yardım almak için [sunucumuza](https://discord.gg/altyapilar) gelebilirsin!\nMüzik dünyanı birlikte oluşturmaya ne dersin?",
     );
     embed.addField(
       `Komut sayısı: ${commandList.size}`,

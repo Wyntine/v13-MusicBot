@@ -50,7 +50,7 @@ module.exports = new Command({
               queue.repeatMode === 0 ? "Aktif Değil" : "Aktif"
             }**, Mevcut müzik durmadan tekrarlanacak (listedeki bütün müzikleri **${
               config.px
-            }loop queue** seçeneği ile tekrarlata bilirsiniz.) 🔂`
+            }loop queue** seçeneği ile tekrarlatabilirsiniz.) 🔂`
           : `${message.author}, Birşeyler yanlış gitti. ❌`,
       );
     }

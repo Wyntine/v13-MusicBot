@@ -2,7 +2,6 @@
 
 const { QueryType } = require("discord-player");
 const { Queue } = require("discord-player/src/index.js");
-const { VoiceConnectionStatus } = require("@discordjs/voice");
 const { player } = require("../../ext");
 const { Command } = require("../../src/command");
 
@@ -49,25 +48,5 @@ module.exports = new Command({
     res.playlist ? queue.addTracks(res.tracks) : queue.addTrack(res.tracks[0]);
 
     if (!queue.playing) await queue.play();
-
-    const connection = queue.connection.voiceConnection;
-
-    /**
-     * @param {import("@discordjs/voice").VoiceConnectionState} oldState
-     * @param {import("@discordjs/voice").VoiceConnectionState} newState
-     */
-    const stateFunction = (oldState, newState) => {
-      if (
-        oldState.status === VoiceConnectionStatus.Ready &&
-        newState.status === VoiceConnectionStatus.Connecting
-      ) {
-        connection.configureNetworking();
-      }
-    };
-
-    connection.on("stateChange", stateFunction);
-    queue.connection.once("finish", () => {
-      connection.removeListener("stateChange", stateFunction);
-    });
   },
 });

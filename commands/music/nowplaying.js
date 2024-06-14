@@ -11,7 +11,6 @@ module.exports = new Command({
   voiceChannel: true,
   execute(client, message) {
     const queue = player.getQueue(message.guild.id);
-    console.log({ playing: queue.playing, songs: queue.tracks });
 
     if (!queue || !queue.playing)
       return message.channel.send(
